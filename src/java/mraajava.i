@@ -99,12 +99,12 @@ class Spi;
 
 %pragma(java) jniclasscode=%{
     static {
-        try {
-            System.loadLibrary("mraajava");
-        } catch (UnsatisfiedLinkError e) {
-            System.err.println("Native code library failed to load. \n" + e);
-            System.exit(1);
-        }
+//        try {
+//            System.loadLibrary("mraajava");
+//        } catch (UnsatisfiedLinkError e) {
+//            System.err.println("Native code library failed to load. \n" + e);
+//            System.exit(1);
+//        }
 
         if((mraa.class.getPackage().getSpecificationVersion() != null)
                 &&  !(mraa.class.getPackage().getSpecificationVersion().equals("0.0"))
@@ -118,12 +118,12 @@ class Spi;
             if(Integer.parseInt(javaMajor) < Integer.parseInt(nativeMajor)){
                 System.err.println("Java library is out of date. Please update the Java library.");
                 System.err.println("Native library version is " + nativeAPIVersion + ". Java library version is " + javaAPIVersion + ".");
-                System.exit(1);
+//                System.exit(1);
             }
             if(Integer.parseInt(javaMajor) > Integer.parseInt(nativeMajor)){
                 System.err.println("Native library is out of date. Please update the Native library.");
                 System.err.println("Native library version is " + nativeAPIVersion + ". Java library version is " + javaAPIVersion + ".");
-                System.exit(1);
+//                System.exit(1);
             }
 
             String javaMinor = javaAPIVersion.substring(javaMajor.length() + 1, javaAPIVersion.indexOf('.', javaMajor.length() + 1));
